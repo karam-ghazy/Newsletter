@@ -1,0 +1,194 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #36384d;
+}
+
+.container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+
+  padding: 2%;
+  background-color: #fff;
+  border-radius: 20px;
+  .join {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 2%;
+    .title {
+      font-size: 50px;
+      word-spacing: 2px;
+    }
+    .joined {
+    }
+    .join-info {
+      div {
+        display: flex;
+        align-items: center;
+        &:not(:last-child) {
+          margin-bottom: 5%;
+        }
+        img {
+        }
+        p {
+          margin-left: 5%;
+        }
+      }
+    }
+    .to-join {
+      display: flex;
+      flex-direction: column;
+      label {
+        margin-bottom: 2%;
+        font-weight: bold;
+        &.error {
+          display: flex;
+          justify-content: space-between;
+          + input {
+            border-color: #ff0000;
+            color: #ff0000;
+          }
+          .error {
+            font-weight: normal;
+            color: #ff0000;
+          }
+        }
+      }
+      input {
+        border: none;
+        border: 2px solid #ddd;
+        padding: 3%;
+        border-radius: 6px;
+        font-size: 18px;
+        transition: 0.3s;
+        &:hover {
+          border-color: #444;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    .subscribe {
+      position: relative; /* Required for positioning pseudo-element */
+      border: none;
+      background-color: #232742; /* Base color */
+      color: #fff;
+      padding: 4%;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      overflow: hidden; /* Ensures pseudo-element doesn't overflow */
+      transition: background-color 0.3s ease; /* Transition for background color */
+
+      &::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          45deg,
+          #ff5a66,
+          #ff9349
+        ); /* Gradient background */
+        transition: opacity 0.3s ease; /* Transition for opacity */
+        opacity: 0; /* Start with hidden gradient */
+      }
+
+      &:hover {
+        background-color: transparent; /* Keeps the same base color to avoid flickering */
+      }
+
+      &:hover::after {
+        opacity: 1; /* Show gradient on hover */
+      }
+    }
+  }
+  .image {
+    width: 45%;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .container {
+    width: 75%;
+  }
+}
+
+@media (max-width: 991px) {
+  .container {
+    width: 85%;
+    .join {
+      .title {
+        font-size: 45px;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: 95%;
+    padding: 2%;
+    .join {
+      justify-content: space-around;
+      .title {
+        font-size: 35px;
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .container {
+    transform: translate(-50%, -50%);
+    width: 100%;
+    flex-direction: column-reverse;
+    align-items: center;
+    border-radius: 0;
+    padding: 0;
+    .image {
+      width: 100%;
+      margin-bottom: 5%;
+      img {
+        width: 100%;
+      }
+    }
+    .join {
+      width: 100%;
+      padding: 5%;
+
+      .title {
+        margin-bottom: 5%;
+        font-size: 40px;
+      }
+      .joined {
+        margin-bottom: 5%;
+      }
+      .join-info {
+        margin-bottom: 5%;
+      }
+      .to-join {
+        margin-bottom: 5%;
+      }
+    }
+  }
+}
