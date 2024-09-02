@@ -53,9 +53,7 @@ function showMessageSuccess() {
 
   let messageContainer = document.createElement("div");
   messageContainer.classList.add("message");
-  let spanEmail = document.createElement("span");
-  spanEmail.innerHTML = `karam@gmail.com`;
-  messageContainer.innerHTML = `A confirmation email has been sent to ${spanEmail} Please open it and click the button inside to confirm your subscription.`;
+  messageContainer.innerHTML = `A confirmation email has been sent to <span>${email.value}</span> Please open it and click the button inside to confirm your subscription.`;
 
   let dismissButton = document.createElement("button");
   dismissButton.classList.add("dismiss");
