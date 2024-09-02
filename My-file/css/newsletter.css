@@ -127,9 +127,80 @@ body {
   }
 }
 
+.container-message-success {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 65%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3%;
+  background-color: #fff;
+  border-radius: 20px;
+  .image {
+    img {
+    }
+  }
+  .title {
+    color: #232742;
+    h1 {
+      font-size: 50px;
+      line-height: 1;
+    }
+  }
+  .message {
+    span {
+      font-weight: bold;
+    }
+  }
+  .dismiss {
+    position: relative; /* Required for positioning pseudo-element */
+    border: none;
+    background-color: #232742; /* Base color */
+    color: #fff;
+    padding: 4%;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    overflow: hidden; /* Ensures pseudo-element doesn't overflow */
+    transition: background-color 0.3s ease; /* Transition for background color */
+
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        45deg,
+        #ff5a66,
+        #ff9349
+      ); /* Gradient background */
+      transition: opacity 0.3s ease; /* Transition for opacity */
+      opacity: 0; /* Start with hidden gradient */
+    }
+
+    &:hover {
+      background-color: transparent; /* Keeps the same base color to avoid flickering */
+    }
+
+    &:hover::after {
+      opacity: 1; /* Show gradient on hover */
+    }
+  }
+}
+
 @media (max-width: 1199px) {
   .container {
     width: 75%;
+  }
+  .container-message-success {
+    width: 40%;
   }
 }
 
@@ -141,6 +212,9 @@ body {
         font-size: 45px;
       }
     }
+  }
+  .container-message-success {
+    width: 50%;
   }
 }
 
@@ -154,6 +228,9 @@ body {
         font-size: 35px;
       }
     }
+  }
+  .container-message-success {
+    width: 60%;
   }
 }
 
@@ -190,5 +267,11 @@ body {
         margin-bottom: 5%;
       }
     }
+  }
+  .container-message-success {
+    width: 100%;
+    min-height: 100%;
+    border-radius: 0;
+    justify-content: space-evenly;
   }
 }
